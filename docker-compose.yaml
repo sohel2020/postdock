@@ -42,9 +42,7 @@ services:
         volumes:
             - pgmaster:/var/lib/postgresql/data
         networks:
-            cluster:
-                aliases:
-                    - pgmaster
+            - cluster
 #### PG-SLAVE-1 ####   
     pgslave1:
         build:
@@ -65,9 +63,7 @@ services:
         volumes:
             - pgslave1:/var/lib/postgresql/data
         networks:
-            cluster:
-                aliases:
-                    - pgslave1
+            - cluster
 #### BACKUP ####  
     backup:
         build:
@@ -85,9 +81,7 @@ services:
         volumes:
             - backup:/var/backups
         networks:
-            cluster:
-                aliases:
-                    - backup
+            - cluster
 #### PGPOOL ####                     
     pgpool:
         build:
@@ -117,7 +111,4 @@ services:
             - "5432:5432" #PSQL PORT
             - 9898:9898 # PCP
         networks:
-            cluster:
-                aliases:
-                    - pgpool
-# the rest is for tests
+            - cluster
