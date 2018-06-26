@@ -68,7 +68,7 @@ services:
     backup:
         build:
             context: src
-            dockerfile: Barman-2.3-Postgres-10.Dockerfile
+            dockerfile: Barman-2.4-Postgres-10.Dockerfile
         environment:
             REPLICATION_USER: replication_user # default is replication_user
             REPLICATION_PASSWORD: replication_pass # default is replication_pass
